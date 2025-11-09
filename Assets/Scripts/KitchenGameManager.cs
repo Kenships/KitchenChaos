@@ -37,9 +37,7 @@ public class KitchenGameManager : MonoBehaviour
         GameInput.Instance.OnPauseAction += GameInputOnPauseAction;
         GameInput.Instance.OnInteractAction += GameInputOnInteractAction;
         
-        //Skip start phase for testing
-        state = State.CountdownToStart;
-        OnStateChange?.Invoke(this, EventArgs.Empty);
+        
     }
 
     private void GameInputOnInteractAction(object sender, EventArgs e)

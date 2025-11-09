@@ -24,7 +24,7 @@ public class TutorialUI : MonoBehaviour
         
         
         UpdateVisual();
-
+  
         Show();
     }
 
