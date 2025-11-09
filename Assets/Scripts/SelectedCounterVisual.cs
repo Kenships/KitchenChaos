@@ -12,7 +12,24 @@ public class SelectedCounterVisual : MonoBehaviour
     [SerializeField] private BaseCounter baseCounter;
     private void Start()
     {
-        //Player.Instance.OnSelectedCounterChanged += PlayerOnSelectedCounterChanged;
+        if (Player.LocalInstance)
+        {
+            Player.LocalInstance.OnSelectedCounterChanged += PlayerOnSelectedCounterChanged;
+        }
+        else
+        {
+            Player.OnAnyPlayerSpawned += PlayerOnAnyPlayerSpawned;
+        }
+        
+    }
+
+    private void PlayerOnAnyPlayerSpawned(object sender, EventArgs e)
+    {
+        if (Player.LocalInstance)
+        {
+            Player.LocalInstance.OnSelectedCounterChanged -= PlayerOnSelectedCounterChanged;
+            Player.LocalInstance.OnSelectedCounterChanged += PlayerOnSelectedCounterChanged;
+        }
     }
 
     private void PlayerOnSelectedCounterChanged(object sender, Player.OnSelectedCounterChangedEventArgs e)
