@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,13 +15,13 @@ namespace UI
             startHostButton.onClick.AddListener(() =>
             {
                 Debug.Log("Starting host");
-                NetworkManager.Singleton.StartHost();
+                KitchenGameMultiplayer.Instance.StartHost();
                 Hide();
             });
             startClientButton.onClick.AddListener(() =>
             {
                 Debug.Log("Starting client");
-                NetworkManager.Singleton.StartClient();
+                KitchenGameMultiplayer.Instance.StartClient();
                 Hide();
             });
         }
