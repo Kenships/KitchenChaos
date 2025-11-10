@@ -61,12 +61,12 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
 
         if (IsServer)
         {
-            NetworkManager.Singleton.OnClientConnectedCallback += NetworkManager_OnClientConnectedCallback;
+            NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_OnClientDisconnectCallback;
         }
         
     }
 
-    private void NetworkManager_OnClientConnectedCallback(ulong clientId)
+    private void NetworkManager_OnClientDisconnectCallback(ulong clientId)
     {
         if (clientId == OwnerClientId && HasKitchenObject())
         {
