@@ -18,6 +18,8 @@ public class GameStartCountdownUI : MonoBehaviour
     private void Start()
     {
         KitchenGameManager.Instance.OnStateChange += KitchenGameManagerOnStateChange;
+        
+        Hide();
     }
 
     private void KitchenGameManagerOnStateChange(object sender, EventArgs e)
